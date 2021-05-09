@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 //        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         this.getSupportActionBar().hide();
         myWebView = (WebView) findViewById(R.id.web);
-        myWebView.setBackgroundColor(Color.BLACK);
+        myWebView.setBackgroundColor(Color.rgb(23, 20, 29));
         myWebView.setWebViewClient(new WebViewClient());
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
