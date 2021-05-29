@@ -1,0 +1,83 @@
+/* Fixed CSS for every page*/
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #17141d;
+    color: white;
+    font-family: 'DM Mono', monospace;
+    /* overflow-y: scr  oll; */
+}
+
+.tags {
+    margin: 1rem 0 2rem;
+    padding: .5rem 0 1rem;
+    line-height: 2;
+    margin-bottom: 0;
+}
+
+#desc, #ab {
+    color: #17141d;
+    /* margin-right: auto; */
+    margin-bottom: 0%;
+}
+/* Fixed CSS for every page*/
+
+
+input[type=submit] {
+    /* align-self: center; */
+    width: 100%;
+    background-color: #026905;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+#card1 {
+    color: #17141d;
+}
+
+#card11 {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#map {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 750px;
+    width: 80%;
+    min-width: 250px;
+    padding: 1.5rem;
+    border-radius: 16px;
+    background: #17141d;
+    box-shadow: -1rem 0 3rem #000;
+    transition: .2s;
+}
+
+/* input[type=submit]:hover {
+    background-color: #005703;
+} */
+
+/* #logout {
+    width: 100%;    
+    padding: 14px 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0px;
+    cursor: pointer;
+    border-radius: 15px;
+} */
+
+/* #logout:hover {
+    background-color: #690202;
+} */

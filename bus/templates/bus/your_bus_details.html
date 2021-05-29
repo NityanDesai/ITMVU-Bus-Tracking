@@ -1,0 +1,94 @@
+{% extends 'bus/footer.html' %}
+{% block body %}
+<!-- Fixed HTML for every page -->
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{% static 'bus/images/Location-icon-1.png' %}">
+    <link rel="stylesheet" href="{% static 'bus/css/welcome_admin.css' %}">
+
+    <title>Driver details - ITMVU Bus Tracking</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'bus/images/warning-icon.png' %}" width="50" height="50"
+                class="d-inline-block align-middle" alt="" loading="lazy">
+            ITMVU Bus Tracking
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'track_bus' %}">Track bus location<span class="sr-only"></span></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link disabled" href="#">Your driver's details<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'change_password' %}">Change Password<span class="sr-only"></span></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}"><button class="btn btn-danger ">Log out</button></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Fixed HTML for every page -->
+
+    <h2 style="text-align:center; color:white;"><br>Your Bus & Driver's Details</h2>
+
+    <div id="card11" class="card bg-warning my-5" style="width: 18rem;">
+        <div class="card-body">
+            <h3 id="card1" class="card-title">{{bus.driver_name}}</h3>
+            <h4 style="color:#17141d;" class="card-link">{{bus.driver_mobile_no}}</h4>
+            <h5 class="card-subtitle mb-2 text-muted">Route no. {{bus.bus_route_no}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Please contact the driver in case of emergencies only.</h6>
+        </div>
+    </div>
+
+    <h4 style="text-align: center; margin:3%"><a href="{% url 'schedule' %}">See recent bus schedule from the college here</a> </h4>
+
+    <!-- <form action="/add_driver.html">
+        <input type="submit" value="Add Driver">
+    </form>
+    <form action="/add_student.html">
+        <input type="submit" value="Register Student">
+    </form>
+    <form action="/view_bus_details.html">
+        <input type="submit" value="View Bus Details">
+    </form>
+    <br><br>
+    <form action="/home.html">
+        <button class="btn btn-danger" type="submit">Log Out</button>
+    </form> -->
+    {% endblock %}

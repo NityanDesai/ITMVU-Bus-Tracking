@@ -1,0 +1,70 @@
+{% extends 'bus/footer.html' %}
+{% block body %}
+<!-- Fixed HTML for every page -->
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{% static 'bus/images/Location-icon-1.png' %}">
+    <link rel="stylesheet" href="{% static 'bus/css/admin.css' %}">
+
+    <title>Driver login - ITMVU Bus Tracking</title>
+</head> 
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <a class="navbar-brand">
+            <img src="{% static 'bus/images/warning-icon.png' %}" width="50" height="50" class="d-inline-block align-middle" alt=""
+                loading="lazy">
+            ITMVU Bus Tracking
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link disabled" href="#">Home<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+    <!-- Fixed HTML for every page -->
+
+    <div id="div">
+        <h2>Driver login</h2>
+        <!-- A user should be able to login with their username & password generated to their email ids. -->
+        <form method="POST">
+            <br>
+            {% csrf_token %}
+            <!-- {{ form }} -->
+            <input type="submit" value="Log In">
+            <a href="#" id="forgot"><p style="text-align: center;">Forgot Password?</p></a>
+            <div id="mail"></div>
+        </form>
+        
+    </div>
+
+    <!--<script>
+        document.getElementById('id_username').placeholder = "Case sensitive";
+        document.getElementById('id_password').placeholder = "Case sensitive";
+        let forgot = document.getElementById('forgot');
+        forgot.addEventListener('click', (e)=>{
+            document.getElementById("mail").innerHTML = `<p style="text-align:center; color:red;">*Visit to the admin department.</p>`
+        })
+        
+        document.getElementsByTagName('li')[1].innerHTML = `<p>*Wrong Username or Password!</p>`;
+    </script>
+    -->
+    {% endblock %}

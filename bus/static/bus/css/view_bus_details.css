@@ -1,0 +1,73 @@
+/* Fixed CSS for every page*/
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #17141d;
+    color: white;
+    font-family: 'DM Mono', monospace;
+    /* overflow-y: scr  oll; */
+}
+
+.tags {
+    margin: 1rem 0 2rem;
+    padding: .5rem 0 1rem;
+    line-height: 2;
+    margin-bottom: 0;
+}
+
+#desc, #ab {
+    color: #17141d;
+    /* margin-right: auto; */
+    margin-bottom: 0%;
+}
+
+input[type="search"], input[type="search"]:focus{
+    width: 100%;
+    font-size: smaller;
+    padding: 12px 20px;
+    background-color: #17141d;
+    color: white;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #15121b;
+    /* border-radius: 15px; */
+    box-sizing: border-box;
+    box-shadow: -5px -5px 20px #130f1a, 5px, 5px, 20px #0b090f;
+}
+/* Fixed CSS for every page*/
+
+/* #table {
+    text-align: center;
+    height: fit-content;
+    width: 80%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-right: 10%;
+    margin-left: 10%;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+#table1{
+    height:fit-content;
+    width:fit-content;
+    align-self: center;
+    margin: auto;
+}*/
+
+/* #table::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+#table::-webkit-scrollbar-thumb {
+    background: #201c29;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 2px hsla(0,0%,100%,.25), inset -2px -2px 2px rgba(0,0,0,.25);
+}
+
+#table::-webkit-scrollbar-track {
+    background: linear-gradient(90deg,#201c29,#201c29 1px,#17141d 0,#17141d);
+} */

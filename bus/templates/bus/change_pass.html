@@ -1,0 +1,97 @@
+{% extends 'bus/footer.html' %}
+{% block body %}
+<!-- Fixed HTML for every page -->
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{% static 'bus/images/Location-icon-1.png' %}">
+    <link rel="stylesheet" href="{% static 'bus/css/admin.css' %}">
+
+    <title>Change Password - ITMVU Bus Tracking</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'bus/images/warning-icon.png' %}" width="50" height="50"
+                class="d-inline-block align-middle" alt="" loading="lazy">
+            ITMVU Bus Tracking
+        </a>
+
+        <div class="navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'driver_login' %}"><button class="btn btn-danger ">Log out</button></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Fixed HTML for every page -->
+
+
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert btn-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <div class="container my-5" id="div">
+        <h2>Change Password</h2>
+        <form id="form" method="POST">
+            <br>
+            {% csrf_token %}
+            {{ form }}
+            <div id="notmatched" style="color: red;"></div>
+            <input id="submit" type="submit">
+            <p class="text-muted" style="text-align: center;">Please logout & re-login after successfully changing the password.</p>
+            <!-- Change the password in the DB when clicked submit -->
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('id_old_password').placeholder = "Refer the email if you forgot password";
+        document.getElementById('id_new_password1').placeholder = "New password must satisfy below written conditions";
+        document.getElementById('id_new_password1').type = "text";
+        document.getElementById('id_new_password2').placeholder = "Must match with new password";
+        document.getElementById('id_new_password2').type = "text";
+        document.getElementById('id_new_password1').pattern = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$";
+
+        document.getElementById('submit').addEventListener('click', (e)=>{
+            if(document.getElementById('id_new_password1').value != document.getElementById('id_new_password2').value){
+                e.preventDefault();
+                document.getElementById("notmatched").innerHTML = "*Password & Confirm Password should be same!  "
+            }
+        })
+        
+        // document.getElementsByClassName("helptext").innerHTML = `<ul>
+        //         <li>
+        //             Use atleast 1 capital letter in password.
+        //         </li>
+        //         <li>
+        //             Your password must contain at least 8 characters.
+        //         </li>
+        //         <li>
+        //             Use atleast 1 symbol in password.
+        //         </li>
+        //         <li>
+        //             Your password can’t be entirely numeric.
+        //         </li>
+        //     </ul>`;
+    </script>
+
+    {% endblock %}

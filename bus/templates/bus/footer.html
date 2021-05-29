@@ -1,0 +1,64 @@
+{% load static %}
+{% block body %} {% endblock %}
+<!-- Fixed HTML for every page -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @media only screen and (min-device-width : 280px) and (max-device-width :824px) {
+            .desktopContent {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="desc" class="jumbotron bg-warning desktopContent">
+        <h4 style="color: #17141d;">Contact Us</h4>
+        <table id="desc">
+            <tbody>
+                <tr>
+                    <td><a id="ab" target="_blank" href="https://www.itm.ac.in/"><img
+                                src="{% static 'bus/images/web-icon.png' %}" alt=""></a>
+                    </td>
+                    <td colspan="2"><a id="ab" target="_blank" href="https://www.itm.ac.in/">www.itm.ac.in</a></td>
+                </tr>
+                <tr>
+                    <td><a id="ab" target="_blank" href="mailto:admissions@itmvu.in"><img
+                                src="{% static 'bus/images/email-icon.png' %}" alt=""></a></td>
+                    <td colspan="2"><a id="ab" target="_blank" href="mailto:admissions@itmvu.in">admissions@itmvu.in</a>
+                    </td>
+                </tr>
+                <tr>
+                    <div>
+                        <td><img src="{% static 'bus/images/mobile-icon.png' %}" alt=""></td>
+                        <td>7043341951, 7043341952/53, 9574005022</td>
+                    </div>
+                </tr>
+            </tbody>
+        </table>
+        <h6 class="text-danger">Developers: Nityan Desai, Samir Tripathi, Tushar Chauhan, Rishi Bhatt</h6>
+        <h6 style="font-size: small;" class="text-muted">Copyright © 2021 ITM Vocational University, Vadodara.</h6>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+<!-- Fixed HTML for every page -->

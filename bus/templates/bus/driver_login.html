@@ -1,0 +1,137 @@
+{% extends 'bus/footer.html' %}
+{% block body %}
+<!-- Fixed HTML for every page -->
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <style>
+        @media only screen and (min-device-width : 824px) {
+            .mobileContent {
+                display: none;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{% static 'bus/images/Location-icon-1.png' %}">
+    <link rel="stylesheet" href="{% static 'bus/css/admin.css' %}">
+
+    <title>Driver login - ITMVU Bus Tracking</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <a class="navbar-brand">
+            <img src="{% static 'bus/images/warning-icon.png' %}" width="50" height="50"
+                class="d-inline-block align-middle" alt="" loading="lazy">
+            ITMVU Bus Tracking
+        </a>
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button> -->
+
+        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link disabled" href="#">Home<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div> -->
+
+    </nav>
+    <!-- Fixed HTML for every page -->
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert btn-primary alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <div class="container my-5" id="div">
+        <h2>Driver login</h2>
+        <!-- A user should be able to login with their username & password generated to their email ids. -->
+        <!-- <form method="POST"> -->
+        <p style="color: red;">{{message}}</p>
+        <form name="driver_login" action="/driver_login" enctype="multipart/form-data" method=POST>
+            <br>
+            {% csrf_token %}
+            <!-- {{ form }} -->
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="id_username" required />
+
+            <label for="username">Password:</label>
+            <input type="password" name="password" id="id_password" required>
+
+            <input type="submit" value="Log In">
+            <a href="#" id="forgot">
+                <p style="text-align: center;">Forgot Password?</p>
+            </a>
+            <div id="mail"></div>
+            <a id="contact" class="mobileContent" href="#">
+                <p style="text-align: center;">Contact Us</p>
+            </a>
+        </form>
+    </div>
+        <div style="color: #17141d; margin-bottom: 0%;" id="card11" class="jumbotron bg-warning invisible mobileContent">
+            <h4>Contact Us</h4>
+            <table id="desc">
+                <tbody>
+                    <tr>
+                        <td><a style="color: #17141d;" target="_blank" href="https://www.itm.ac.in/"><img
+                                    src="{% static 'bus/images/web-icon.png' %}" alt=""></a>
+                        </td>
+                        <td colspan="2"><a style="color: #17141d;" target="_blank"
+                                href="https://www.itm.ac.in/">www.itm.ac.in</a></td>
+                    </tr>
+                    <tr>
+                        <td><a style="color: #17141d;" target="_blank" href="mailto:admissions@itmvu.in"><img
+                                    src="{% static 'bus/images/email-icon.png' %}" alt=""></a></td>
+                        <td colspan="2"><a style="color: #17141d;" target="_blank"
+                                href="mailto:admissions@itmvu.in">admissions@itmvu.in</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <div>
+                            <td><img src="{% static 'bus/images/mobile-icon.png' %}" alt=""></td>
+                            <td>7043341951, 7043341952/53, 9574005022</td>
+                        </div>
+                    </tr>
+                </tbody>
+            </table>
+            <h6 class="text-danger">Developers: Nityan Desai, Samir Tripathi, Tushar Chauhan, Rishi Bhatt</h6>
+            <h6 style="font-size: small;" class="text-muted">Copyright © 2021 ITM Vocational University,
+                Vadodara.</h6>
+        </div>
+
+
+    <script>
+        document.getElementById('id_username').placeholder = "Case sensitive";
+        document.getElementById('id_password').placeholder = "Case sensitive";
+        let forgot = document.getElementById('forgot');
+        forgot.addEventListener('click', (e) => {
+            document.getElementById("mail").innerHTML = `<p style="text-align:center; color:red;">*Refer the mail sent to you containing your username & passsword or visit to the admin department.</p>`
+        })
+
+        let contact = document.getElementById('contact');
+        contact.addEventListener('click', (e) => {
+            document.getElementById("card11").classList.toggle("invisible");
+        })
+
+        document.getElementsByTagName('li')[1].innerHTML = `<p>*Wrong Username or Password!</p>`;
+    </script>
+
+
+    {% endblock %}

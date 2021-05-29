@@ -1,0 +1,181 @@
+{% extends 'bus/footer.html' %}
+{% block body %}
+<!-- Fixed HTML for every page -->
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{% static 'bus/images/Location-icon-1.png' %}">
+    <link rel="stylesheet" href="{% static 'bus/css/welcome_admin.css' %}">
+
+    <style>
+        @media only screen and (min-device-width : 280px) and (max-device-width :824px) {
+            .desktopContent {
+                display: none;
+            }
+        }
+    </style>
+
+    <title>Welcome - ITMVU Bus Tracking</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'bus/images/warning-icon.png' %}" width="50" height="50"
+                class="d-inline-block align-middle" alt="" loading="lazy">
+            ITMVU Bus Tracking
+        </a>
+        <button class="navbar-toggler desktopContent" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link disabled" href="#">Location Sharing<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'change_pass' username %}">Change Password<span
+                            class="sr-only"></span></a>
+                </li>
+            </ul>
+        </div>
+
+        {% if messages %}
+        {% else %}
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a id="logout" class="nav-link" href="{% url 'driver_login' %}"><button class="btn btn-danger ">Log
+                            out</button></a>
+                </li>
+            </ul>
+        </div>
+        {% endif %}
+    </nav>
+    <!-- Fixed HTML for every page -->
+    <div id="alert"></div>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert btn-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <h2 style="text-align:center; color:white;"><br>Welcome, {{ name }}!</h2>
+
+    <div id="card11" class="card bg-warning my-5" style="width: 18rem;">
+        <div style="text-align : center" class="card-body">
+            <!-- <h3 id="card1" class="card-title">Your location is being shared...</h3> -->
+            <!-- <div class="container"><h5 class="card-subtitle mb-2 text-muted">Your location: <p class="text-danger" id="location"></p></h5></div> -->
+            <form name="welcome_driver" action="/welcome_driver/" enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="input-group my-3">
+                        <!-- <div class="input-group-prepend">
+                            <span class="input-group-text bg-danger text-light">Location</span>
+                        </div> -->
+                        <input id="lat" name="lat" type="hidden" class="form-control text-light bg-dark" readonly>
+                        <input id="long" name="long" type="hidden" class="form-control text-light bg-dark" readonly>
+                        <input id="pk" name="pk" type="hidden" class="form-control text-light bg-dark" readonly>
+                        <input id="name" name="name" type="hidden" class="form-control text-light bg-dark" readonly>
+                        <input id="username" name="username" type="hidden" class="form-control text-light bg-dark" readonly>
+                    </div>
+                    <input id="send" type="submit" value="Share location">
+                </div>
+            </form>
+            {% if messages %}
+            <a href="{% url 'reset' bus_route_no %}" enctype="multipart/form-data" method="POST" class="btn btn-danger my-3" type="link">Logout & Reset location</a>
+            <script>
+                let send = document.getElementById('send');
+                setInterval(()=>{
+                    send.click()
+                }, 180000)
+            </script>
+            {% else %}
+            <a class="nav-link" id="logout" href="{% url 'driver_login' %}"><button class="btn btn-danger ">Log
+                    out</button></a>
+            {% endif %}
+            <a href="{% url 'change_pass' username %}" class="card-link">Change Password</a><br>
+        </div><br>
+    </div><br>
+
+    <!-- <form action="/add_driver.html">
+        <input type="submit" value="Add Driver">
+    </form>
+    <form action="/add_student.html">
+        <input type="submit" value="Register Student">
+    </form>
+    <form action="/view_bus_details.html">
+        <input type="submit" value="View Bus Details">
+    </form>
+    <br><br>
+    <form action="/home.html">
+        <button class="btn btn-danger" type="submit">Log Out</button>
+    </form> -->
+
+    <script>
+
+        // document.getElementById('send').addEventListener('click', () => {
+        //     document.getElementById('deactive').classList.remove('invisible');
+        //     document.getElementById('send').classList.add('invisible');
+        //     document.getElementById('deactive').addEventListener('click', () => {
+        //         document.getElementById('send').classList.remove('invisible');
+        //         document.getElementById('deactive').classList.add('invisible');
+        //     })
+        // })
+
+        document.getElementById('pk').value = '{{bus_route_no}}';
+        document.getElementById('name').value = '{{name}}';
+        document.getElementById('username').value = '{{username}}';
+        
+        const successCallback = (position) => {
+            // console.log(position);
+            // console.log(position);
+            // locate = position.coords.latitude + " " + position.coords.longitude;
+            document.getElementById('lat').value = position.coords.latitude;
+            document.getElementById('long').value = position.coords.longitude;
+        }
+        const errorCallback = (error) => {
+            console.error(error);
+            document.getElementById('lat').value = 22.33991955946263;
+            document.getElementById('long').value = 73.3614583053149;
+            document.getElementById('send').classList.add('invisible');
+            document.getElementById('alert').innerHTML = `<div id="danger" class="alert btn-danger alert-dismissible fade show" role="alert"><strong>Somthing went wrong!</strong> You should allow location permission or try to re-login.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button></div>`;
+        }
+        // navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {
+        //     enableHighAccuracy: true,
+        //     timeout: 720000
+        // });
+        const watchId = navigator.geolocation.watchPosition(successCallback, errorCallback, {
+            enableHighAccuracy: true
+        });
+
+        document.getElementById('logout').addEventListener("click", function () {
+            navigator.geolocation.clearWatch(watchId);
+        });
+
+    </script>
+    {% endblock %}

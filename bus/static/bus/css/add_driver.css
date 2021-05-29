@@ -1,0 +1,81 @@
+/* Fixed CSS for every page*/
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #17141d;
+    color: white;
+    font-family: 'DM Mono', monospace;
+    /* overflow-y: scr  oll; */
+}
+
+.tags {
+    margin: 1rem 0 2rem;
+    padding: .5rem 0 1rem;
+    line-height: 2;
+    margin-bottom: 0;
+}
+
+#desc, #ab {
+    color: #17141d;
+    /* margin-right: auto; */
+    margin-bottom: 0%;
+}
+/* Fixed CSS for every page*/
+
+h2 {
+    margin: -2% 0 2% 0;
+    text-align: center;
+    color: #17141d;
+}
+
+input[type=text], input[type=number], input[type=email], select{
+    width: 100%;
+    font-size: smaller;
+    padding: 12px 20px;
+    background-color: #17141d;
+    color: white;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #15121b;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: -5px -5px 20px #130f1a, 5px, 5px, 20px #0b090f;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #026905;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+}
+  
+input[type=submit]:hover {
+    background-color: #005703;
+}
+  
+#div {
+    margin: auto;
+    margin-top: 2%; 
+    margin-bottom: 2%;
+    width: 75%;
+    height: auto;
+    border-radius: 10px;
+    background-color: #ffc107;
+    color: #17141d;
+    padding: 7%;
+    box-shadow: 5px 5px 10px #b6a9a9, -5px, -5px, 10px #ffffff;
+}
+
+input:focus {
+      box-shadow: inset 1px 1px 2px #0d0b13, inset -1px, -1px, 2px #17141d;
+}
+  
+button:active {
+    box-shadow: inset 1px 1px 2px #babecc, inset -1px, -1px, 2px #ffffff;
+}

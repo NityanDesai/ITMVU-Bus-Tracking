@@ -1,0 +1,76 @@
+{% extends 'bus/footer.html' %}
+{% block body %}
+<!-- Fixed HTML for every page -->
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{% static 'bus/images/Location-icon-1.png' %}">
+    <link rel="stylesheet" href="{% static 'bus/css/welcome_admin.css' %}">
+
+    <title>Bus Schedule - ITMVU Bus Tracking</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'bus/images/warning-icon.png' %}" width="50" height="50"
+                class="d-inline-block align-middle" alt="" loading="lazy">
+            ITMVU Bus Tracking
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'track_bus' %}">Track bus location<span class="sr-only"></span></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'your_bus_details' %}">Your driver's details<span
+                            class="sr-only"></span></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'change_password' %}">Change Password<span
+                            class="sr-only"></span></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}"><button class="btn btn-danger ">Log out</button></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Fixed HTML for every page -->
+
+    <h2 style="text-align: center; margin:3%;">Bus Schedule</h2>
+    <h4 style="text-align: center; margin:3%;">Effective Dates: Regular</h4>
+    <div class="mx-3 my-3">
+        <img style="height: 80%; width:100%" src="{% static 'bus/images/regular_schedule.png' %}" alt="">
+    </div>
+
+    {% endblock %}
